@@ -536,7 +536,7 @@ public class BookTicket extends javax.swing.JFrame {
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        PaymentOption ob=new PaymentOption();
+        Payment ob=new Payment();
         ob.setVisible(true);
         
         String ticketid = tno.getText();
