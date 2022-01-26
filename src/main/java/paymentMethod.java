@@ -43,6 +43,8 @@ public class paymentMethod extends javax.swing.JFrame {
     }
 
     paymentMethod(String ticketid, String flightid, String fname, String lname, String pax, String totprice) {
+        initComponents();
+        
         this.tid = ticketid;
         this.fid = flightid;
         this.fn = fname;
