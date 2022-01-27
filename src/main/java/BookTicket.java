@@ -95,11 +95,9 @@ public class BookTicket extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         paxpax = new javax.swing.JSpinner();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         custlname = new javax.swing.JTextField();
-        passnum = new javax.swing.JTextField();
         custfname = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         bookButton = new javax.swing.JButton();
@@ -188,8 +186,6 @@ public class BookTicket extends javax.swing.JFrame {
 
         jLabel14.setText("Surname");
 
-        jLabel15.setText("passport number");
-
         jLabel16.setText("Date of birth");
 
         jLabel17.setText("Given name");
@@ -263,7 +259,7 @@ public class BookTicket extends javax.swing.JFrame {
                                 .addGap(43, 43, 43)
                                 .addComponent(searchButton))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 940, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -300,6 +296,12 @@ public class BookTicket extends javax.swing.JFrame {
                             .addComponent(datetxt, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
                             .addComponent(paxpax))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(backButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bookButton)
+                        .addGap(216, 216, 216))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(236, 236, 236)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,18 +320,8 @@ public class BookTicket extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(custfname)
                                 .addComponent(custlname)
-                                .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(491, 491, 491)
-                        .addComponent(jLabel15)
-                        .addGap(34, 34, 34)
-                        .addComponent(passnum, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(backButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bookButton)
-                        .addGap(216, 216, 216)))
+                                .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(51, 51, 51))
         );
         layout.setVerticalGroup(
@@ -340,10 +332,11 @@ public class BookTicket extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(searchButton)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -409,21 +402,18 @@ public class BookTicket extends javax.swing.JFrame {
                                             .addComponent(jLabel6))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(pricetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel13)
-                                    .addComponent(passnum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addGap(17, 17, 17)))
+                                    .addComponent(jLabel13))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(datetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel20))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(paxpax, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(bookButton)
-                                .addComponent(backButton)))
+                                .addComponent(backButton))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(paxpax, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5)))
                         .addContainerGap(47, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -510,7 +500,7 @@ public class BookTicket extends javax.swing.JFrame {
         int pax = Integer.parseInt(paxpax.getValue().toString());
         int price = Integer.parseInt(pricetxt.getText());
         
-        int totalprice=price * pax;
+        int totalprice = price * pax;
         
         totalpricetxt.setText(String.valueOf(totalprice));
     }//GEN-LAST:event_paxpaxStateChanged
@@ -521,23 +511,29 @@ public class BookTicket extends javax.swing.JFrame {
         
         String ticketid = tno.getText();
         String flightid = idtxt.getText();     
-        String fname = custfname.getText();        
-        String lname = custlname.getText();  
-        String passnumber = passnum.getText();                 
+        String finame = custfname.getText();        
+        String lname = custlname.getText();                
         String totprice = totalpricetxt.getText(); 
         String pax=paxpax.getValue().toString();
         
-        DateFormat da=new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat da=new SimpleDateFormat("dd-MM-yyyy");
         String bdate=da.format(jDateChooser2.getDate());
+        
+        String heregender;
+        if(jRadioButton1.isSelected()){
+            heregender = "Male";
+        }
+        else 
+            heregender = "Female";
                 
-        String sql="insert into customer(ticketId,flightId ,firstName,lastName,passport,birthDate,noOfPax,totalPrice)values(?,?,?,?,?,?,?,?)";     
+        String sql="insert into customer(ticketId,flightId ,firstName,lastName,gender,birthDate,noOfPax,totalPrice)values(?,?,?,?,?,?,?,?)";     
             try {
             pst=conn.prepareStatement(sql);
             pst.setString(1, ticketid);
             pst.setString(2, flightid);
-            pst.setString(3, fname);          
+            pst.setString(3, finame);          
             pst.setString(4, lname);
-            pst.setString(5, passnumber);
+            pst.setString(5, heregender);
             pst.setString(6, bdate);
             pst.setString(7, pax);
             pst.setString(8, totprice);
@@ -547,8 +543,12 @@ public class BookTicket extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
             
+        int sub = Integer.parseInt(totalpricetxt.getText());  
+        double tax = (sub * 0.9) + sub;
+        double gtotal = tax + sub;
+            
         setVisible(false);
-        paymentMethod ob=new paymentMethod(ticketid, flightid, fname, lname, pax, totprice);
+        paymentMethod ob=new paymentMethod(ticketid, flightid, finame, lname, heregender, bdate, pax, totprice, tax, gtotal);
         ob.setVisible(true);
            
     }//GEN-LAST:event_bookButtonActionPerformed
@@ -616,7 +616,6 @@ public class BookTicket extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -635,7 +634,6 @@ public class BookTicket extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
-    private javax.swing.JTextField passnum;
     private javax.swing.JSpinner paxpax;
     private javax.swing.JTextField pricetxt;
     private javax.swing.JButton searchButton;
