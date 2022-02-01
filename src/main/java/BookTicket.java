@@ -37,7 +37,7 @@ public class BookTicket extends javax.swing.JFrame {
     public BookTicket() {
         initComponents();
         conn=connection.ConnectDb();
-        Random();
+        //Random();
         
         idtxt.setEditable(false);
         add(idtxt);
@@ -526,17 +526,17 @@ public class BookTicket extends javax.swing.JFrame {
         else 
             heregender = "Female";
                 
-        String sql="insert into customer(ticketId,flightId ,firstName,lastName,gender,birthDate,noOfPax,totalPrice)values(?,?,?,?,?,?,?,?)";     
+        String sql="insert into customer(flightId ,firstName,lastName,gender,birthDate,noOfPax,totalPrice)values(?,?,?,?,?,?,?)";     
             try {
             pst=conn.prepareStatement(sql);
-            pst.setString(1, ticketid);
-            pst.setString(2, flightid);
-            pst.setString(3, finame);          
-            pst.setString(4, lname);
-            pst.setString(5, heregender);
-            pst.setString(6, bdate);
-            pst.setString(7, pax);
-            pst.setString(8, totprice);
+            //pst.setString(1, ticketid);
+            pst.setString(1, flightid);
+            pst.setString(2, finame);          
+            pst.setString(3, lname);
+            pst.setString(4, heregender);
+            pst.setString(5, bdate);
+            pst.setString(6, pax);
+            pst.setString(7, totprice);
             
             pst.execute();
             } catch(Exception e){
@@ -544,7 +544,7 @@ public class BookTicket extends javax.swing.JFrame {
         }
             
         int sub = Integer.parseInt(totalpricetxt.getText());  
-        double tax = (sub * 0.9) + sub;
+        double tax = (sub * 0.95) + sub;
         double gtotal = tax + sub;
             
         setVisible(false);
