@@ -446,6 +446,7 @@ public class BookTicket extends javax.swing.JFrame {
             pst.setString(3,date);
             ResultSet rs=pst.executeQuery();            
             ResultSetMetaData rsm=rs.getMetaData();
+            
             int c;
             c=rsm.getColumnCount();
             DefaultTableModel Df=(DefaultTableModel)jTable.getModel();
@@ -466,7 +467,8 @@ public class BookTicket extends javax.swing.JFrame {
                 }
                 
                 Df.addRow(v2);                
-             }             
+             }
+            pst.close();
        }                
        catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
@@ -525,7 +527,9 @@ public class BookTicket extends javax.swing.JFrame {
         }
         else 
             heregender = "Female";
-                
+        
+        
+                       
         String sql="insert into customer(flightId ,firstName,lastName,gender,birthDate,noOfPax,totalPrice)values(?,?,?,?,?,?,?)";     
             try {
             pst=conn.prepareStatement(sql);
@@ -543,12 +547,10 @@ public class BookTicket extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
             
-        int sub = Integer.parseInt(totalpricetxt.getText());  
-        double tax = (sub * 0.95) + sub;
-        double gtotal = tax + sub;
-            
+        
+            //ticketid, flightid, finame, lname, heregender, bdate, pax, totprice, tax
         setVisible(false);
-        paymentMethod ob=new paymentMethod(ticketid, flightid, finame, lname, heregender, bdate, pax, totprice, tax, gtotal);
+        paymentMethod ob=new paymentMethod();
         ob.setVisible(true);
            
     }//GEN-LAST:event_bookButtonActionPerformed
