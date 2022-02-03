@@ -21,10 +21,6 @@ import javax.swing.table.DefaultTableModel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-/**
- *
- * @author danial
- */
 public class BookTicket extends javax.swing.JFrame {
     Connection conn;
     ResultSet rs;
@@ -37,7 +33,7 @@ public class BookTicket extends javax.swing.JFrame {
     public BookTicket() {
         initComponents();
         conn=connection.ConnectDb();
-        //Random();
+        Random();
         
         idtxt.setEditable(false);
         add(idtxt);
@@ -60,8 +56,7 @@ public class BookTicket extends javax.swing.JFrame {
     
      public void Random(){
         Random rd=new Random();
-        tno.setText(""+rd.nextInt(1000+1));
-        
+        ticketNotxt.setText(""+rd.nextInt(1000+1));     
     }
 
     /**
@@ -90,7 +85,6 @@ public class BookTicket extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        totalpricetxt = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         paxpax = new javax.swing.JSpinner();
@@ -102,7 +96,7 @@ public class BookTicket extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         bookButton = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        tno = new javax.swing.JLabel();
+        ticketNotxt = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         fname = new javax.swing.JTextField();
@@ -119,6 +113,16 @@ public class BookTicket extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+        totalpricetxt = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -171,8 +175,6 @@ public class BookTicket extends javax.swing.JFrame {
 
         jLabel13.setText("Price Per Person");
 
-        totalpricetxt.setText("jLabel8");
-
         jLabel8.setText("Total");
 
         jLabel6.setText("Preferred Class");
@@ -202,8 +204,8 @@ public class BookTicket extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel18.setText("Ticket No");
 
-        tno.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        tno.setText("number");
+        ticketNotxt.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        ticketNotxt.setText("number");
 
         jLabel20.setText("Date");
 
@@ -222,44 +224,49 @@ public class BookTicket extends javax.swing.JFrame {
         buttonGroupGender.add(jRadioButton2);
         jRadioButton2.setText("Female");
 
+        totalpricetxt.setEditable(false);
+
+        jLabel15.setText("RM");
+
+        jMenu1.setText("File");
+
+        jMenuItem1.setText("Book Ticket");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+        jMenu1.add(jSeparator2);
+
+        jMenuItem3.setText("Home");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+        jMenu1.add(jSeparator1);
+
+        jMenuItem2.setText("Exit");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Help");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(224, 224, 224)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(381, 381, 381)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tno, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(350, 350, 350)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel2)
-                                                .addGap(43, 43, 43)
-                                                .addComponent(jLabel3)))
-                                        .addGap(100, 100, 100)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(76, 76, 76)
-                                        .addComponent(txtTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(43, 43, 43)
-                                .addComponent(searchButton))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 940, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(71, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -312,7 +319,6 @@ public class BookTicket extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addGap(87, 87, 87)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(totalpricetxt)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jRadioButton1)
                                 .addGap(18, 18, 18)
@@ -320,15 +326,54 @@ public class BookTicket extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(custfname)
                                 .addComponent(custlname)
-                                .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
+                                .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(totalpricetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(51, 51, 51))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(381, 381, 381)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ticketNotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(350, 350, 350)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(43, 43, 43)
+                                        .addComponent(jLabel3))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(76, 76, 76)
+                                        .addComponent(txtTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(52, 52, 52)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(53, 53, 53)
+                                        .addComponent(searchButton))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 940, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(492, 492, 492))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addComponent(jLabel1)
-                .addGap(62, 62, 62)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(searchButton)
                     .addGroup(layout.createSequentialGroup()
@@ -348,7 +393,7 @@ public class BookTicket extends javax.swing.JFrame {
                 .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(tno))
+                    .addComponent(ticketNotxt))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
@@ -414,13 +459,14 @@ public class BookTicket extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(paxpax, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel5)))
-                        .addContainerGap(47, Short.MAX_VALUE))
+                        .addContainerGap(24, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(totalpricetxt))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(totalpricetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
+                        .addGap(0, 127, Short.MAX_VALUE))))
         );
 
         pack();
@@ -436,8 +482,7 @@ public class BookTicket extends javax.swing.JFrame {
         
         DateFormat da=new SimpleDateFormat("dd-MM-yyyy");
         String date=da.format(jDateChooser1.getDate());
-       
-        
+              
         String sql="select * from flight where fromOrigin = ? and toDest = ? and date = ? ";
         try{
             pst=conn.prepareStatement(sql);
@@ -511,12 +556,12 @@ public class BookTicket extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         
-        String ticketid = tno.getText();
         String flightid = idtxt.getText();     
         String finame = custfname.getText();        
         String lname = custlname.getText();                
         String totprice = totalpricetxt.getText(); 
         String pax=paxpax.getValue().toString();
+        String ticketNumber = ticketNotxt.getText();
         
         DateFormat da=new SimpleDateFormat("dd-MM-yyyy");
         String bdate=da.format(jDateChooser2.getDate());
@@ -529,8 +574,7 @@ public class BookTicket extends javax.swing.JFrame {
             heregender = "Female";
         
         
-                       
-        String sql="insert into customer(flightId ,firstName,lastName,gender,birthDate,noOfPax,totalPrice)values(?,?,?,?,?,?,?)";     
+        String sql="insert into customer(flightId ,firstName,lastName,gender,birthDate,noOfPax,totalPrice,ticketNumber)values(?,?,?,?,?,?,?,?)";     
             try {
             pst=conn.prepareStatement(sql);
             //pst.setString(1, ticketid);
@@ -541,14 +585,13 @@ public class BookTicket extends javax.swing.JFrame {
             pst.setString(5, bdate);
             pst.setString(6, pax);
             pst.setString(7, totprice);
+            pst.setString(8, ticketNumber);
             
             pst.execute();
             } catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
             
-        
-            //ticketid, flightid, finame, lname, heregender, bdate, pax, totprice, tax
         setVisible(false);
         paymentMethod ob=new paymentMethod();
         ob.setVisible(true);
@@ -561,6 +604,32 @@ public class BookTicket extends javax.swing.JFrame {
         Home ob=new Home();
         ob.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        BookTicket here = new BookTicket();
+        here.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+
+        setVisible(false);
+        Home ob=new Home();
+        ob.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+
+        JFrame frame=new JFrame("EXIT");
+        if(JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit","EXIT",
+            JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION)
+    {
+        System.exit(0);
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -618,6 +687,7 @@ public class BookTicket extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -632,15 +702,23 @@ public class BookTicket extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JTable jTable;
     private javax.swing.JSpinner paxpax;
     private javax.swing.JTextField pricetxt;
     private javax.swing.JButton searchButton;
-    private javax.swing.JLabel tno;
-    private javax.swing.JLabel totalpricetxt;
+    private javax.swing.JLabel ticketNotxt;
+    private javax.swing.JTextField totalpricetxt;
     private javax.swing.JTextField totxt;
     private javax.swing.JComboBox<String> txtFrom;
     private javax.swing.JComboBox<String> txtTo;

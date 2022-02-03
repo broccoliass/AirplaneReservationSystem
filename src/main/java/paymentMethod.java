@@ -16,10 +16,6 @@ import java.util.Calendar;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-/**
- *
- * @author Nur Aisyah
- */
 public class paymentMethod extends javax.swing.JFrame {
 
     
@@ -27,16 +23,6 @@ public class paymentMethod extends javax.swing.JFrame {
     ResultSet rs;
     PreparedStatement pst;
     
-    private String tid;
-    private String fid;
-    private String fn;
-    private String ln;
-    private String px;
-    private String tp;
-    private double tx;
-    private double gt;
-    private String gd;
-    private String bd;
     private String custId;
     private String dater;
 
@@ -46,59 +32,29 @@ public class paymentMethod extends javax.swing.JFrame {
 
     
     public paymentMethod() {
-      
-       
+            
         initComponents();
-         conn=connection.ConnectDb();
+        conn=connection.ConnectDb();
         //Random();
         //data();
         showData();
-          timehere();
+        timehere();
      
-         
-
     }
-
-   /*  paymentMethod(String ticketid, String flightid, String fname, String lname, String heregender, String bdate, String pax, String totprice, int tax) {
-        initComponents();
-        
-        this.tid = ticketid;
-        this.fid = flightid;
-        this.fn = fname;
-        this.ln = lname;
-        this.gd = heregender;
-        this.bd = bdate;
-        this.px = pax;
-        this.tp = totprice;
-        this.tx = tax;
-       
-        
-       flightIdtxt.setText(String.valueOf(fid));
-        
-        fnametxt.setText(String.valueOf(fn));
-        lnametxt.setText(String.valueOf(ln));
-        gendertxt.setText(String.valueOf(gd));
-        dob.setText(String.valueOf(bd));
-        paxtxt.setText(String.valueOf(px));
-        
-        totaltxt.setText(String.valueOf(gt));
-        
-        subtotaltxt.setText(String.valueOf(tp));
-        taxtxt.setText(String.valueOf(tx));
-    }*/
 
     public void showData(){
         {
                     try {
-                String sql = "SELECT customer.* FROM customer ORDER BY ticketId DESC LIMIT 1;";
+                String sql = "SELECT customer.* FROM customer ORDER BY customerId DESC LIMIT 1;";
                 pst=conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 if(rs.next()){
-                this.custId = rs.getString("ticketId");
-                flightIdtxt.setText(rs.getString("flightId"));
+                this.custId = rs.getString("customerId");
+                
+                ticketNumbertxt.setText(rs.getString("ticketNumber"));              
                 fnametxt.setText(rs.getString("firstName"));
                 lnametxt.setText(rs.getString("lastName"));
-                //gendertxt.setText(rs.getString("gender"));
+                gendertxt.setText(rs.getString("gender"));
                 dob.setText(rs.getString("birthDate"));
                 paxtxt.setText(rs.getString("noOfPax"));
                 subtotaltxt.setText(rs.getString("totalPrice"));
@@ -109,8 +65,7 @@ public class paymentMethod extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e);
         }
         }
-        
-        
+               
         int sub = Integer.parseInt(subtotaltxt.getText());  
         int tax = (int) (sub * 0.15);
         int total = tax + sub;
@@ -123,12 +78,10 @@ public class paymentMethod extends javax.swing.JFrame {
                     
     }
     
-
     public void Random(){
         Random rd=new Random();
-    flightIdtxt.setText(""+rd.nextInt(1000+1));      
+        ticketNumbertxt.setText(""+rd.nextInt(1000+1));      
     }
-    
     
     public void timehere(){
          //Converting milliseconds to Date using java.util.Date
@@ -147,35 +100,6 @@ public class paymentMethod extends javax.swing.JFrame {
        this.dater = df.format(currentDate);
        //jLabel2.setText(df.format(currentDate));
     }
-    
-   /* public void data(){
-        String sql="select firstName, lastName, noOfPax, totalPrice from customer where ticketId = ? ";
-                try{
-            
-       String sql = "SELECT customer.gender FROM customer ORDER BY flightId DESC LIMIT 1;";
-        
-            pst=conn.prepareStatement(sql);
-            pst.setString(1,bookId.getText());
-            ResultSet rs=pst.executeQuery();   
-            
-            if(rs.next()) { 
-                String fn = rs.getString("firstName");
-                fname.setText(fn);
-                String ln = rs.getString("lastName");
-                lname.setText(ln);
-                //String bd = rs.getDate("birthDate").toString();
-               // dob.setText(bd);
-               
-                String nop = rs.getString("noOfPax");
-                pax.setText(nop);
-                String tp = rs.getString("totalPrice");
-                total.setText(tp);
-            }      
-    }
-        catch (SQLException e ) {
-    JOptionPane.showMessageDialog(null, e);
-        }
-    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -189,7 +113,7 @@ public class paymentMethod extends javax.swing.JFrame {
         buttonGroupMethod = new javax.swing.ButtonGroup();
         panel1 = new java.awt.Panel();
         taxtxt = new javax.swing.JLabel();
-        flightIdtxt = new javax.swing.JLabel();
+        ticketNumbertxt = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         paxtxt = new javax.swing.JLabel();
@@ -231,8 +155,14 @@ public class paymentMethod extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         cbConfirm = new javax.swing.JCheckBox();
         backButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -240,8 +170,8 @@ public class paymentMethod extends javax.swing.JFrame {
 
         taxtxt.setText("jLabel11");
 
-        flightIdtxt.setText("lbl");
-        flightIdtxt.setToolTipText("");
+        ticketNumbertxt.setText("lbl");
+        ticketNumbertxt.setToolTipText("");
 
         jLabel31.setText("Passengers");
 
@@ -260,7 +190,7 @@ public class paymentMethod extends javax.swing.JFrame {
         totaltxt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         totaltxt.setText("number");
 
-        jLabel25.setText("Flight ID");
+        jLabel25.setText("Ticket Number");
 
         jLabel26.setText("Hand luggage");
 
@@ -296,7 +226,7 @@ public class paymentMethod extends javax.swing.JFrame {
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel27)
                             .addComponent(paxtxt)
-                            .addComponent(flightIdtxt)
+                            .addComponent(ticketNumbertxt)
                             .addComponent(jLabel23))))
                 .addContainerGap(30, Short.MAX_VALUE))
             .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -332,7 +262,7 @@ public class paymentMethod extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(flightIdtxt))
+                    .addComponent(ticketNumbertxt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
@@ -497,9 +427,40 @@ public class paymentMethod extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("jLabel2");
+        jMenu1.setText("File");
 
-        jLabel5.setText("jLabel5");
+        jMenuItem1.setText("Book Ticket");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+        jMenu1.add(jSeparator2);
+
+        jMenuItem3.setText("Home");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+        jMenu1.add(jSeparator1);
+
+        jMenuItem2.setText("Exit");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Help");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -538,7 +499,7 @@ public class paymentMethod extends javax.swing.JFrame {
                                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(0, 718, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -549,12 +510,8 @@ public class paymentMethod extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel2)
-                                        .addGap(67, 67, 67)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(33, 33, 33))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -568,11 +525,7 @@ public class paymentMethod extends javax.swing.JFrame {
                 .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel2)))
+                        .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(jLabel30)
                         .addGap(18, 18, 18)
@@ -599,13 +552,11 @@ public class paymentMethod extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addComponent(jLabel5)
-                .addGap(28, 28, 28)
+                .addGap(51, 51, 51)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(cbConfirm)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(backButton))
@@ -614,7 +565,7 @@ public class paymentMethod extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(49, 49, 49)
                     .addComponent(jLabel34)
-                    .addContainerGap(733, Short.MAX_VALUE)))
+                    .addContainerGap(710, Short.MAX_VALUE)))
         );
 
         pack();
@@ -684,16 +635,13 @@ public class paymentMethod extends javax.swing.JFrame {
         
         else if(cbConfirm.isSelected()){
             
-            
-        String time = jLabel2.getText();
         String totprice = totaltxt.getText();
-        String flightid = flightIdtxt.getText();
+        String flightid = ticketNumbertxt.getText();
         String finame = fnametxt.getText();
         String lname = lnametxt.getText();
         String heregender = gendertxt.getText();
         String bdate = dob.getText();
         String pax = paxtxt.getText();
-        String date = jLabel2.getText();
            
         String method;
         if(fpx.isSelected()){
@@ -701,39 +649,27 @@ public class paymentMethod extends javax.swing.JFrame {
         }
         else 
             method = "Debit/Credit Card";
-        JOptionPane.showMessageDialog(rootPane,totprice+ ". " + flightid + " " + finame + " " +  lname + " " + heregender + " " + bdate + " " + pax + " " + method);
-        
-        
-
-        
+               
        {
             try {
-                String sql="insert into payment(CustomerID,Amount,Date,PaymentMethod)values("+custId+",'"+totprice+"','"+dater+"','"+method+"')"; 
+                String sql="insert into payment(customerId,amount,time,paymentMethod)values("+custId+",'"+totprice+"','"+dater+"','"+method+"')"; 
             pst=conn.prepareStatement(sql);
-            //pst.setString(1, ticketid);
-            //pst.setString(1, flightid);
-            //pst.setString(2, finame);          
-            //pst.setString(3, lname);
-            //pst.setString(4, heregender);
-            //pst.setString(5, bdate);
-            //pst.setString(6, pax);
-            //pst.setString(7, totprice);
-            //pst.setString(8, time);
-            //pst.setString(8, method);
             
             pst.execute();
-            } catch(Exception e){
+            } 
+            catch(Exception e){
                 JOptionPane.showMessageDialog(null, e);
                 throw new RuntimeException(e);
             
-        }
+                }
+       }   
         
+        JOptionPane.showMessageDialog(rootPane,"Awesome! You successfully created your booking");
         
+        setVisible(false);
+        receipt ob=new receipt();
+        ob.setVisible(true);    
         
-        //setVisible(false);
-        //Payment ob=new Payment();
-        //ob.setVisible(true);    
-        }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -743,6 +679,32 @@ public class paymentMethod extends javax.swing.JFrame {
         BookTicket ob=new BookTicket();
         ob.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        BookTicket here = new BookTicket();
+        here.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+
+        setVisible(false);
+        Home ob=new Home();
+        ob.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+
+        JFrame frame=new JFrame("EXIT");
+        if(JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit","EXIT",
+            JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION)
+    {
+        System.exit(0);
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -785,7 +747,6 @@ public class paymentMethod extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbConfirm;
     private javax.swing.JRadioButton dcCard;
     private javax.swing.JLabel dob;
-    private javax.swing.JLabel flightIdtxt;
     private javax.swing.JLabel fnametxt;
     private javax.swing.JRadioButton fpx;
     private javax.swing.JLabel gendertxt;
@@ -797,7 +758,6 @@ public class paymentMethod extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -810,11 +770,18 @@ public class paymentMethod extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextField jTextField1;
@@ -826,6 +793,7 @@ public class paymentMethod extends javax.swing.JFrame {
     private javax.swing.JLabel paxtxt;
     private javax.swing.JLabel subtotaltxt;
     private javax.swing.JLabel taxtxt;
+    private javax.swing.JLabel ticketNumbertxt;
     private javax.swing.JLabel totaltxt;
     // End of variables declaration//GEN-END:variables
 }
