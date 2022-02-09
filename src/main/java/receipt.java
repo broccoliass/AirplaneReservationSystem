@@ -478,13 +478,13 @@ public class receipt extends javax.swing.JFrame {
         area.setText(area.getText()+"\nPassenger: " + text3);
         area.setText(area.getText()+"\nBooking ID: "+ text4);
         area.setText(area.getText()+"\nTicket Number: "+ text5);
-        area.setText(area.getText()+"\n\nFrom\t To\t Flight\t    Departure\t Arrival");
-        area.setText(area.getText()+"\n"+ text6 + "\t" + text7 + "\t " + text8 + "     " + text9 + "\t" + text10);
+        area.setText(area.getText()+"\n\nFrom\t\t\t\t To\t\t   Flight\tDeparture\t Arrival");
+        area.setText(area.getText()+"\n"+ text6 + "\t" + text7 + "\t " + text8 + "\t" + text9 + "\t\t" + text10);
         area.setText(area.getText()+"\n\nPreferred Class\t\t Booking Status");
-        area.setText(area.getText()+"\n"+text11 + "\t\t\t   " + text12);
+        area.setText(area.getText()+"\n"+text11 + "\t\t\t" + text12);
         area.setText(area.getText()+"\n\nPAYMENT DETAILS");
         area.setText(area.getText()+"\nPayment Calculation\t\t Payment Method");
-        area.setText(area.getText()+"\n"+text13 + "\t\t\t" + text14);
+        area.setText(area.getText()+"\n"+text13 + "\t\t\t\t" + text14);
         
         
     }//GEN-LAST:event_generateReceiptActionPerformed
