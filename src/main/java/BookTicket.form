@@ -157,7 +157,7 @@
                   <Component id="pricetxt" alignment="0" max="32767" attributes="0"/>
                   <Component id="fromtxt" alignment="0" pref="165" max="32767" attributes="0"/>
                   <Component id="totxt" max="32767" attributes="0"/>
-                  <Component id="datetxt" min="-2" pref="99" max="-2" attributes="0"/>
+                  <Component id="datetxt" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
