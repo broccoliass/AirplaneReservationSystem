@@ -471,7 +471,7 @@ public class receipt extends javax.swing.JFrame {
         String text14 = method.getText();
                
         area.setText("****************************************************\n");
-        area.setText(area.getText() + "*               Fees Receipt System                *\n");
+        area.setText(area.getText() + "*               Ticket Receipt System                *\n");
         area.setText(area.getText() + "****************************************************\n");
              
         area.setText(area.getText()+"\nFlight Name: "+ text1 + "\t\tDate: " + text2);
